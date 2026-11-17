@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.8)
+project(d1_edu_description)
+find_package(ament_cmake REQUIRED)
+install(FILES README.md DESTINATION share/${PROJECT_NAME})
+install(DIRECTORY urdf meshes config DESTINATION share/${PROJECT_NAME})
+install(FILES provenance.json DESTINATION share/${PROJECT_NAME})
+ament_package()

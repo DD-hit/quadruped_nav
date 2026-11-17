@@ -1,0 +1,34 @@
+Owned map-registration implementation and upstream provenance
+
+Package: quadruped_localization
+File: scripts/map_registration.py
+
+This project implementation migrates the multi-scale point-to-point ICP approach
+from That-nav's global_localization.py, with explicit frame conversion, bounded
+inputs, range/FOV cropping, coarse-to-fine chaining, result quality checks,
+geometry screening and correction gates. It is not the original ROS node.
+
+Upstream: https://github.com/real-lsy/That-nav
+Commit: 38b12d8d83d10ad1fe1e6b354a34fbf717ae42f4
+Reference: go2w_nav_ws/src/FAST_LIO_LOCALIZATION2/fast_lio_localization/global_localization.py
+
+The upstream directory's LICENSE is GNU GPL version 2; its package.xml and
+setup.py contain inconsistent license metadata. The license text is retained as
+licenses/That-nav-localization-GPL-2.0.txt. This migrated file carries the
+conservative SPDX designation GPL-2.0-only. This notice does not assign that
+license to unrelated existing project files or replace their metadata.
+
+Source hashes and migration scope: migration_sources.json.
+Original audit snapshot: third_party/reference/localization_review (not built).
+
+Direct upstream core review and migration (2026-11-17):
+https://github.com/Smart-Wheelchair-RRC/FAST_LIO_LOCALIZATION2
+Commit: f04974907c8da976dd0495b272d18ac4c534d41f
+File: fast_lio_localization/global_localization.py, registration_at_scale
+Port: scripts/fast_lio_localization2_core.py
+Changes: ROS-independent metric arguments, cached map pyramid, full result for
+quality checks, project ICP tolerances; coarse output seeds fine stage.
+The project keeps its synchronized frames, timestamp handling, input bounds and
+quality gates. This is the same ICP family as the pre-existing That-nav port,
+not a new global-search algorithm or a claim of improved accuracy.
+License: licenses/FAST_LIO_LOCALIZATION2-GPL-2.0.txt.

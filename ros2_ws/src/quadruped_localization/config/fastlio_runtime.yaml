@@ -1,0 +1,43 @@
+schema_version: 1
+status: ideal_short_trajectory_verified
+profile_scope: ideal_indoor_simulation_only
+stationary_warmup_s: 3.0
+recommended_lidar_samples_per_scan: 6000
+parameters:
+  max_iteration: 4
+  filter_size_surf: 0.2
+  filter_size_map: 0.2
+  cube_side_length: 100.0
+  runtime_pos_log_enable: false
+  mapping:
+    det_range: 20.0
+    acc_cov: 0.0001
+    gyr_cov: 0.000001
+    b_acc_cov: 0.00000001
+    b_gyr_cov: 0.0000000001
+  publish:
+    path_en: true
+    scan_publish_en: true
+    dense_publish_en: true
+    scan_bodyframe_pub_en: true
+    map_en: false
+  pcd_save:
+    pcd_save_en: false
+    interval: -1
+remappings:
+  /Odometry: /lio/odometry
+  /gravity: /lio/gravity
+  /cloud_registered: /lio/cloud_registered
+  /cloud_registered_body: /lio/cloud_registered_body
+  /cloud_effected: /lio/cloud_effected
+  /Laser_map: /lio/map
+  /path: /lio/path
+  /tf: /lio/tf
+  /tf_static: /lio/tf_static
+  /map_save: /lio/map_save
+status_topic: /lio/runtime_status
+reset_policy: restart_estimator_on_clock_rollback
+reference_frames:
+  world: camera_init
+  state: body
+  state_semantics: lidar_imu_link

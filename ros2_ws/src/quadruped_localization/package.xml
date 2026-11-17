@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>quadruped_localization</name>
+  <version>0.0.1</version>
+  <description>四足建图定位：FAST-LIO 接入、机身里程计、地图管理与上游 ICP 配准接入。</description>
+  <maintainer email="rl@example.invalid">rl</maintainer>
+  <license>TODO: project license not selected</license>
+  <!-- map_registration.py and fast_lio_localization2_core.py; see NOTICE for provenance and scope. -->
+  <license>GPL-2.0-only</license>
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>std_srvs</exec_depend>
+  <exec_depend>livox_ros_driver2</exec_depend>
+  <exec_depend>python3-numpy</exec_depend>
+  <exec_depend>python3-open3d</exec_depend>
+  <exec_depend>python3-yaml</exec_depend>
+  <exec_depend>fast_lio</exec_depend>
+  <exec_depend>nav_msgs</exec_depend>
+  <exec_depend>geometry_msgs</exec_depend>
+  <exec_depend>tf2_ros_py</exec_depend>
+  <exec_depend>tf2_msgs</exec_depend>
+  <exec_depend>rosgraph_msgs</exec_depend>
+  <exec_depend>ament_index_python</exec_depend>
+  <exec_depend>rosbag2_py</exec_depend>
+  <exec_depend>rosbag2_interfaces</exec_depend>
+  <exec_depend>rosbag2_transport</exec_depend>
+  <exec_depend>ros2bag</exec_depend>
+  <export><build_type>ament_cmake</build_type></export>
+</package>

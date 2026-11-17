@@ -1,0 +1,83 @@
+Panels:
+  - Class: rviz_common/Displays
+    Name: Displays
+  - Class: rviz_common/Tool Properties
+    Name: Tool Properties
+  - Class: rviz_common/Views
+    Name: Views
+Visualization Manager:
+  Class: ""
+  Global Options:
+    Fixed Frame: map
+    Background Color: 35; 38; 43
+    Frame Rate: 20
+  Displays:
+    - Class: rviz_default_plugins/Grid
+      Name: Grid
+      Enabled: true
+      Cell Size: 1
+      Plane Cell Count: 30
+    - Class: rviz_default_plugins/PointCloud2
+      Name: Saved map
+      Enabled: true
+      Topic:
+        Value: /navigation/saved_map
+        Reliability Policy: Reliable
+        Durability Policy: Transient Local
+        Depth: 1
+      Size (m): 0.035
+      Style: Points
+      Color Transformer: AxisColor
+      Axis: Z
+      Alpha: 0.65
+    - Class: rviz_default_plugins/Path
+      Name: Global route
+      Enabled: true
+      Topic:
+        Value: /navigation/planned_path
+        Reliability Policy: Reliable
+        Durability Policy: Transient Local
+        Depth: 1
+      Color: 30; 210; 255
+      Line Style: Lines
+      Line Width: 0.04
+    - Class: rviz_default_plugins/Path
+      Name: Local candidate
+      Enabled: true
+      Topic:
+        Value: /navigation/local/candidate_path
+        Reliability Policy: Reliable
+        Durability Policy: Transient Local
+        Depth: 1
+      Color: 255; 180; 40
+      Line Width: 0.04
+    - Class: rviz_default_plugins/Pose
+      Name: Robot pose
+      Enabled: true
+      Topic:
+        Value: /localization/pose
+        Reliability Policy: Reliable
+        Durability Policy: Volatile
+        Depth: 10
+      Shape: Arrow
+      Color: 255; 255; 255
+      Shaft Length: 0.5
+      Shaft Radius: 0.05
+      Head Length: 0.2
+      Head Radius: 0.12
+  Tools:
+    - Class: rviz_default_plugins/Interact
+    - Class: rviz_default_plugins/MoveCamera
+    - Class: rviz_default_plugins/Select
+    - Class: rviz_default_plugins/SetInitialPose
+    - Class: rviz_default_plugins/SetGoal
+  Views:
+    Current:
+      Class: rviz_default_plugins/Orbit
+      Distance: 17
+      Focal Point: {X: 0, Y: 0, Z: 0}
+      Pitch: 1.35
+      Yaw: 1.57079632679
+Window Geometry:
+  Width: 1280
+  Height: 800

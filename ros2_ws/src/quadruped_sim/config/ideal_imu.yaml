@@ -1,0 +1,11 @@
+schema_version: 1
+model: ideal_rigid_body_specific_force
+status: verified
+sample_hz: 200.0
+render_hz: 30.0
+gravity_mps2: 9.80665
+status_topic: /sim/imu_status
+noise_enabled: false
+bias_enabled: false
+orientation_available: false
+covariance: unspecified_ros_zero

@@ -1,0 +1,23 @@
+schema_version: 1
+scope: known_validation_room_planar_sensor_survey
+description: Perimeter loop followed by crossing passes; no autonomous exploration.
+speed_mps: 0.20
+yaw_rate_radps: 0.25
+position_tolerance_m: 0.035
+settle_at_waypoint_s: 0.8
+final_scan_s: 26.0
+scan_replay_period_s: 1.0
+additional_clearance_m: 0.10
+waypoints_xy_m:
+  - [0.0, -2.1]
+  - [-3.1, -2.1]
+  - [-3.1, 2.1]
+  - [3.1, 2.1]
+  - [3.1, -2.1]
+  - [0.0, -2.1]
+  - [0.0, 0.04]
+  - [-3.1, 0.04]
+  - [3.1, 0.04]
+  - [3.1, 2.1]
+  - [0.0, 2.1]
+  - [0.0, 0.0]

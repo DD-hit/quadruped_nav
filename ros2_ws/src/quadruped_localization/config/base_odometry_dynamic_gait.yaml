@@ -1,0 +1,21 @@
+schema_version: 1
+input:
+  odometry_topic: /lio/odometry
+  gravity_topic: /lio/gravity
+  reference_frame: camera_init
+  state_frame: body
+  covariance_convention: ros_fixed_axes_reference_frame
+output:
+  status_topic: /lio/base_odometry_status
+  publish_reference_tf: true
+  publish_sensor_tf: true
+initialization:
+  stationary_duration_s: 0.5
+  max_linear_speed_m_s: 0.2
+  max_angular_speed_rad_s: 0.2
+  max_position_span_m: 0.1
+  max_gravity_angle_deg: 5.0
+  max_input_gap_s: 0.3
+  origin: initial_base_position
+  heading: initial_base_forward_projected_on_gravity_plane
+reset_policy: clear_alignment_on_clock_rollback_and_restart_with_estimator

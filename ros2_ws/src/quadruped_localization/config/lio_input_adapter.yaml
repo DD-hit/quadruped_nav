@@ -1,0 +1,21 @@
+schema_version: 1
+status: simulation_verified
+scan_hz: 10.0
+input:
+  lidar_topic: /lidar/points
+  imu_topic: /imu/data
+  lidar_frame: lidar_link
+  imu_frame: lidar_imu_link
+output:
+  lidar_topic: /lidar/livox
+  imu_topic: /lio/imu
+status_topic: /lio/input_status
+semantics:
+  header_time: scan_origin_preserved
+  point_time: uint32_nanoseconds_from_header
+  imu_acceleration: m_per_s_squared_specific_force_unscaled
+  imu_gyro: radians_per_second_unscaled
+  synthetic_line: 0
+  synthetic_tag: 16
+  output_reliability: reliable
+  reset_policy: restart_downstream_lio_before_a_new_epoch

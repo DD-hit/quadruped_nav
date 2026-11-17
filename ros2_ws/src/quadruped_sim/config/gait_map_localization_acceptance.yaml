@@ -1,0 +1,31 @@
+schema_version: 1
+scope: independent_live_dynamic_gait_saved_map_localization
+initial_pose_sensor_time_s: 4.0
+maximum_initialization_sensor_time_s: 12.0
+max_sim_seconds: 40.0
+phases:
+  - {name: stationary, duration_s: 3.0, vx_mps: 0.0, wz_radps: 0.0}
+  - {name: straight, duration_s: 4.0, vx_mps: 0.5, wz_radps: 0.0}
+  - {name: settle_after_straight, duration_s: 2.0, vx_mps: 0.0, wz_radps: 0.0}
+  - {name: left_turn, duration_s: 4.0, vx_mps: 0.0, wz_radps: 0.3}
+  - {name: settle_after_left, duration_s: 2.0, vx_mps: 0.0, wz_radps: 0.0}
+  - {name: right_turn, duration_s: 4.0, vx_mps: 0.0, wz_radps: -0.3}
+  - {name: final_stationary, duration_s: 3.0, vx_mps: 0.0, wz_radps: 0.0}
+# Engineering acceptance for this ideal simulation and 0.2 m navigation map;
+# these are not manufacturer specifications or hardware certification.
+limits:
+  position_rmse_m: 0.10
+  position_p95_m: 0.18
+  position_max_m: 0.25
+  orientation_rmse_deg: 3.0
+  orientation_p95_deg: 5.0
+  orientation_max_deg: 8.0
+  map_odom_step_translation_m: 0.08
+  map_odom_step_rotation_rad: 0.05
+  pose_gap_s: 0.35
+  tf_composition_translation_m: 0.000001
+  tf_composition_rotation_rad: 0.000001
+  minimum_poses_per_phase: 15
+  minimum_straight_displacement_m: 1.5
+  minimum_turn_angle_rad: 0.8
+  maximum_failed_match_fraction: 0.10

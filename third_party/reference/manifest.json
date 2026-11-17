@@ -1,0 +1,13 @@
+{
+  "global_navigation": {
+    "repository": "https://github.com/6-robot/jie_3d_nav",
+    "commit": "995a3a544ce6e7bec6f205569339d5125843d727",
+    "path": "jie_3d_nav"
+  },
+  "local_navigation": {
+    "repository": "https://github.com/wuyi2121/SCAN-Planner",
+    "branch": "ros2-community",
+    "commit": "d0b921c9b05a6d291d144d60882b2e0e88d2c0e0",
+    "path": "scan_local_planner"
+  }
+}

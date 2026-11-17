@@ -1,0 +1,13 @@
+schema_version: 1
+robot: d1_edu
+host: 127.0.0.1
+port: 8766
+navigation_velocity_topic: /navigation/cmd_vel_raw
+output_velocity_topic: /cmd_vel
+manual_max_linear_m_s: 0.5
+manual_max_angular_rad_s: 0.3
+manual_timeout_wall_s: 0.3
+navigation_timeout_wall_s: 0.35
+control_lease_wall_s: 5.0
+camera_status: not_integrated
+preset_actions_status: not_integrated

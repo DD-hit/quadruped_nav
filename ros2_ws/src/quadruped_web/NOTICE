@@ -1,0 +1,10 @@
+Quadruped Web: project-owned Web, ROS interface and velocity arbitration code, MIT.
+The visual interaction follows the user's requested jie_3d_nav Web workflow.
+No upstream planner/controller algorithm is reimplemented here.
+
+Vendored Three.js revision 164 and OrbitControls:
+Copyright 2010-2024 Three.js Authors, MIT (see licenses/threejs-MIT.txt).
+Files retained from jie_3d_nav reference commit 995a3a544ce6e7bec6f205569339d5125843d727,
+which vendors Three.js; OrbitControls uses the local relative import.
+https://github.com/6-robot/jie_3d_nav/tree/995a3a544ce6e7bec6f205569339d5125843d727/jie_octomap/web/vendor
+https://github.com/mrdoob/three.js/tree/r164

@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.8)
+project(quadruped_bringup)
+find_package(ament_cmake REQUIRED)
+install(FILES README.md DESTINATION share/${PROJECT_NAME})
+install(DIRECTORY config launch rviz DESTINATION share/${PROJECT_NAME})
+install(PROGRAMS scripts/inspect_config.py DESTINATION lib/${PROJECT_NAME})
+ament_package()

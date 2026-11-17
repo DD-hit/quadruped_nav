@@ -1,0 +1,344 @@
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1,53 +1,10 @@
+-cmake_minimum_required(VERSION 3.8)
+-project(fast_lio)
+-
++cmake_minimum_required(VERSION 3.16)
++project(fast_lio LANGUAGES C CXX)
+ if(NOT CMAKE_BUILD_TYPE)
+   set(CMAKE_BUILD_TYPE Release)
+ endif()
+-
+- ADD_COMPILE_OPTIONS(-std=c++17) 
+- ADD_COMPILE_OPTIONS(-std=c++17) 
+- set(CMAKE_CXX_FLAGS "-std=c++17 -O3") 
+-  
+- add_definitions(-DROOT_DIR=\"${CMAKE_CURRENT_SOURCE_DIR}/\") 
+-  
+- set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fexceptions") 
+- set(CMAKE_CXX_STANDARD 17) 
++set(CMAKE_CXX_STANDARD 17)
+ set(CMAKE_CXX_STANDARD_REQUIRED ON)
+-set(CMAKE_CXX_EXTENSIONS OFF)
+-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14 -pthread -std=c++0x -std=c++14 -fexceptions")
+-set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+-
+-message("Current CPU archtecture: ${CMAKE_SYSTEM_PROCESSOR}")
+-
+-if(CMAKE_SYSTEM_PROCESSOR MATCHES "(x86)|(X86)|(amd64)|(AMD64)")
+-  include(ProcessorCount)
+-  ProcessorCount(N)
+-  message("Processer number:  ${N}")
+-
+-  if(N GREATER 4)
+-    add_definitions(-DMP_EN)
+-    add_definitions(-DMP_PROC_NUM=3)
+-    message("core for MP: 3")
+-  elseif(N GREATER 3)
+-    add_definitions(-DMP_EN)
+-    add_definitions(-DMP_PROC_NUM=2)
+-    message("core for MP: 2")
+-  else()
+-    add_definitions(-DMP_PROC_NUM=1)
+-  endif()
+-else()
+-  add_definitions(-DMP_PROC_NUM=1)
+-endif()
+-
+-find_package(OpenMP QUIET)
+-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS}")
+-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS}   ${OpenMP_C_FLAGS}")
+-
+-find_package(PythonLibs REQUIRED)
+-find_path(MATPLOTLIB_CPP_INCLUDE_DIRS "matplotlibcpp.h")
+-
+-# ROS dependencies
+ find_package(ament_cmake REQUIRED)
+ find_package(rclcpp REQUIRED)
+ find_package(rclcpp_components REQUIRED)
+@@ -57,72 +14,25 @@
+ find_package(std_msgs REQUIRED)
+ find_package(std_srvs REQUIRED)
+ find_package(visualization_msgs REQUIRED)
+-find_package(pcl_ros REQUIRED)
++find_package(tf2_ros REQUIRED)
+ find_package(pcl_conversions REQUIRED)
+ find_package(livox_ros_driver2 REQUIRED)
+ find_package(rosidl_default_generators REQUIRED)
+-
+-set(dependencies
+-  rclcpp
+-  rclcpp_components
+-  geometry_msgs
+-  nav_msgs
+-  sensor_msgs
+-  std_msgs
+-  std_srvs
+-  visualization_msgs
+-  pcl_ros
+-  pcl_conversions
+-  livox_ros_driver2
+-)
+-
+-# Thirdparty libraries
+ find_package(Eigen3 REQUIRED)
+-find_package(PCL REQUIRED COMPONENTS common io)
+-
+-message(Eigen: ${EIGEN3_INCLUDE_DIR})
+-message(STATUS "PCL: ${PCL_INCLUDE_DIRS}")
+-
+-set(msg_files
+-  "msg/Pose6D.msg"
+-)
+-
+-rosidl_generate_interfaces(${PROJECT_NAME}
+-  ${msg_files}
+-)
++find_package(PCL REQUIRED COMPONENTS common io filters kdtree)
++find_package(OpenMP REQUIRED)
++rosidl_generate_interfaces(${PROJECT_NAME} "msg/Pose6D.msg")
+ ament_export_dependencies(rosidl_default_runtime)
+-
+ add_executable(fastlio_mapping src/laserMapping.cpp include/ikd-Tree/ikd_Tree.cpp src/preprocess.cpp)
+-target_include_directories(fastlio_mapping PUBLIC
+-  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+-  $<INSTALL_INTERFACE:include>
+-  ${PCL_INCLUDE_DIRS}
+-)
+-target_link_libraries(fastlio_mapping ${PCL_LIBRARIES} ${PYTHON_LIBRARIES} Eigen3::Eigen)
+-target_include_directories(fastlio_mapping PRIVATE ${PYTHON_INCLUDE_DIRS})
+-
+-list(APPEND EOL_LIST "foxy" "galactic" "eloquent" "dashing" "crystal")
+-
+-if($ENV{ROS_DISTRO} IN_LIST EOL_LIST)
+-  # Custommsg to support foxy & galactic
+-  rosidl_target_interfaces(fastlio_mapping
+-    ${PROJECT_NAME} "rosidl_typesupport_cpp")
+-else()
+-  rosidl_get_typesupport_target(cpp_typesupport_target
+-    ${PROJECT_NAME} "rosidl_typesupport_cpp")
+-  target_link_libraries(fastlio_mapping ${cpp_typesupport_target})
+-endif()
+-
+-ament_target_dependencies(fastlio_mapping ${dependencies})
+-
+-# ---------------- Install --------------- #
+-install(TARGETS fastlio_mapping
+-  DESTINATION lib/${PROJECT_NAME}
+-)
+-
+-install(
+-  DIRECTORY config launch rviz
+-  DESTINATION share/${PROJECT_NAME}
+-)
+-
++target_include_directories(fastlio_mapping PRIVATE include ${PCL_INCLUDE_DIRS})
++target_compile_options(fastlio_mapping PRIVATE -O3 -fexceptions -include omp.h)
++target_compile_definitions(fastlio_mapping PRIVATE ROOT_DIR="${CMAKE_CURRENT_SOURCE_DIR}/" MP_EN MP_PROC_NUM=3)
++target_link_libraries(fastlio_mapping ${PCL_LIBRARIES} Eigen3::Eigen OpenMP::OpenMP_CXX)
++rosidl_get_typesupport_target(cpp_typesupport_target ${PROJECT_NAME} "rosidl_typesupport_cpp")
++target_link_libraries(fastlio_mapping ${cpp_typesupport_target})
++ament_target_dependencies(fastlio_mapping rclcpp rclcpp_components geometry_msgs nav_msgs sensor_msgs std_msgs
++  std_srvs visualization_msgs tf2_ros pcl_conversions livox_ros_driver2)
++install(TARGETS fastlio_mapping DESTINATION lib/${PROJECT_NAME})
++install(DIRECTORY config launch rviz DESTINATION share/${PROJECT_NAME})
++install(FILES LICENSE UPSTREAM.md DESTINATION share/${PROJECT_NAME})
+ ament_package()
+--- a/package.xml
++++ b/package.xml
+@@ -25,7 +25,10 @@
+   <depend>sensor_msgs</depend>
+   <depend>common_interfaces</depend>
+   <depend>tf2</depend>
+-  <depend>pcl_ros</depend>
++  <depend>tf2_ros</depend>
++  <depend>rclcpp_components</depend>
++  <depend>std_srvs</depend>
++  <depend>visualization_msgs</depend>
+   <depend>pcl_conversions</depend>
+   <depend>livox_ros_driver2</depend>
+ 
+--- a/include/common_lib.h
++++ b/include/common_lib.h
+@@ -29,7 +29,11 @@
+ #define CONSTRAIN(v,min,max)     ((v>min)?((v<max)?v:max):min)
+ #define ARRAY_FROM_EIGEN(mat)    mat.data(), mat.data() + mat.rows() * mat.cols()
+ #define STD_VEC_FROM_EIGEN(mat)  vector<decltype(mat)::Scalar> (mat.data(), mat.data() + mat.rows() * mat.cols())
+-#define DEBUG_FILE_DIR(name)     (string(string(ROOT_DIR) + "Log/"+ name))
++inline std::string& fastlio_runtime_root() {
++  static std::string path = "/tmp/fast_lio/";
++  return path;
++}
++#define DEBUG_FILE_DIR(name) (fastlio_runtime_root() + "Log/" + name)
+ 
+ typedef fast_lio::msg::Pose6D Pose6D;
+ typedef pcl::PointXYZINormal PointType;
+--- a/src/laserMapping.cpp
++++ b/src/laserMapping.cpp
+@@ -40,7 +40,7 @@
+ #include <csignal>
+ #include <chrono>
+ #include <unistd.h>
+-#include <Python.h>
++#include <filesystem>
+ #include <so3_math.h>
+ #include <rclcpp/rclcpp.hpp>
+ #include <Eigen/Core>
+@@ -59,6 +59,7 @@
+ #include <tf2_ros/transform_broadcaster.h>
+ #include <geometry_msgs/msg/transform_stamped.hpp>
+ #include <geometry_msgs/msg/vector3.hpp>
++#include <geometry_msgs/msg/vector3_stamped.hpp>
+ #include <livox_ros_driver2/msg/custom_msg.hpp>
+ #include "preprocess.h"
+ #include <ikd-Tree/ikd_Tree.h>
+@@ -531,7 +532,7 @@
+         if (pcl_wait_save->size() > 0 && pcd_save_interval > 0  && scan_wait_num >= pcd_save_interval)
+         {
+             pcd_index ++;
+-            string all_points_dir(string(string(ROOT_DIR) + "PCD/scans_") + to_string(pcd_index) + string(".pcd"));
++            string all_points_dir(string(root_dir + "PCD/scans_") + to_string(pcd_index) + string(".pcd"));
+             pcl::PCDWriter pcd_writer;
+             cout << "current scan saved to /PCD/" << all_points_dir << endl;
+             pcd_writer.writeBinary(all_points_dir, *pcl_wait_save);
+@@ -623,24 +624,62 @@
+     
+ }
+ 
+-void publish_odometry(const rclcpp::Publisher<nav_msgs::msg::Odometry>::SharedPtr pubOdomAftMapped, std::unique_ptr<tf2_ros::TransformBroadcaster> & tf_br)
++void publish_odometry(const rclcpp::Publisher<nav_msgs::msg::Odometry>::SharedPtr pubOdomAftMapped,
++                      const rclcpp::Publisher<geometry_msgs::msg::Vector3Stamped>::SharedPtr pubGravity,
++                      std::unique_ptr<tf2_ros::TransformBroadcaster> & tf_br)
+ {
+     odomAftMapped.header.frame_id = "camera_init";
+     odomAftMapped.child_frame_id = "body";
+     odomAftMapped.header.stamp = get_ros_time(lidar_end_time);
+     set_posestamp(odomAftMapped.pose);
++    // IKFoM state is [position_C, right-local attitude_I, ...]. ROS pose
++    // covariance is [position_C, fixed-axis attitude_C], not [attitude, position].
++    const auto P = kf.get_P();
++    const Eigen::Matrix3d R_C_I = state_point.rot.toRotationMatrix();
++    Eigen::Matrix<double, 6, 23> J_pose = Eigen::Matrix<double, 6, 23>::Zero();
++    J_pose.block<3, 3>(0, 0).setIdentity();
++    J_pose.block<3, 3>(3, 3) = R_C_I;
++    const Eigen::Matrix<double, 6, 6> C_pose = J_pose * P * J_pose.transpose();
++
++    // ROS Odometry twist is expressed at the IMU origin, in child frame I.
++    // Angular velocity uses the last sample at/before scan end, minus filter bias.
++    // This exporter changes no filter state, matching, integration, or deskewing.
++    if (Measures.imu.empty()) return;
++    const auto & gyro = Measures.imu.back()->angular_velocity;
++    const Eigen::Vector3d omega_I = Eigen::Vector3d(gyro.x, gyro.y, gyro.z) - state_point.bg;
++    const Eigen::Vector3d velocity_I = R_C_I.transpose() * state_point.vel;
++    odomAftMapped.twist.twist.linear.x = velocity_I.x();
++    odomAftMapped.twist.twist.linear.y = velocity_I.y();
++    odomAftMapped.twist.twist.linear.z = velocity_I.z();
++    odomAftMapped.twist.twist.angular.x = omega_I.x();
++    odomAftMapped.twist.twist.angular.y = omega_I.y();
++    odomAftMapped.twist.twist.angular.z = omega_I.z();
++    Eigen::Matrix3d velocity_skew;
++    velocity_skew << 0, -velocity_I.z(), velocity_I.y(),
++                     velocity_I.z(), 0, -velocity_I.x(),
++                     -velocity_I.y(), velocity_I.x(), 0;
++    Eigen::Matrix<double, 6, 23> J_twist = Eigen::Matrix<double, 6, 23>::Zero();
++    J_twist.block<3, 3>(0, 3) = velocity_skew;
++    J_twist.block<3, 3>(0, 12) = R_C_I.transpose();
++    J_twist.block<3, 3>(3, 15) = -Eigen::Matrix3d::Identity();
++    Eigen::Matrix<double, 6, 6> C_twist = J_twist * P * J_twist.transpose();
++    // Assumes configured gyro noise, conditional on the fixed CAD calibration.
++    // Sample/filter correlations and hardware calibration errors are not modeled.
++    C_twist.block<3, 3>(3, 3) += Eigen::Matrix3d::Identity() * gyr_cov;
++    for (int row = 0; row < 6; ++row) {
++        for (int col = 0; col < 6; ++col) {
++            odomAftMapped.pose.covariance[row * 6 + col] = C_pose(row, col);
++            odomAftMapped.twist.covariance[row * 6 + col] = C_twist(row, col);
++        }
++    }
++    geometry_msgs::msg::Vector3Stamped gravity;
++    gravity.header = odomAftMapped.header;
++    gravity.vector.x = state_point.grav[0];
++    gravity.vector.y = state_point.grav[1];
++    gravity.vector.z = state_point.grav[2];
++    pubGravity->publish(gravity);
++
+     pubOdomAftMapped->publish(odomAftMapped);
+-    auto P = kf.get_P();
+-    for (int i = 0; i < 6; i ++)
+-    {
+-        int k = i < 3 ? i + 3 : i - 3;
+-        odomAftMapped.pose.covariance[i*6 + 0] = P(k, 3);
+-        odomAftMapped.pose.covariance[i*6 + 1] = P(k, 4);
+-        odomAftMapped.pose.covariance[i*6 + 2] = P(k, 5);
+-        odomAftMapped.pose.covariance[i*6 + 3] = P(k, 0);
+-        odomAftMapped.pose.covariance[i*6 + 4] = P(k, 1);
+-        odomAftMapped.pose.covariance[i*6 + 5] = P(k, 2);
+-    }
+ 
+     geometry_msgs::msg::TransformStamped trans;
+     trans.header.frame_id = "camera_init";
+@@ -901,19 +940,28 @@
+         fill(epsi, epsi+23, 0.001);
+         kf.init_dyn_share(get_f, df_dx, df_dw, h_share_model, NUM_MAX_ITERATIONS, epsi);
+ 
++        // Store generated output in this run's data directory, never the source tree.
++        auto output_dir = this->declare_parameter<string>("output_directory", "/tmp/fast_lio_" + std::to_string(getpid()));
++        if (output_dir.empty()) throw std::runtime_error("output_directory cannot be empty");
++        root_dir = std::filesystem::absolute(output_dir).string() + "/";
++        std::filesystem::create_directories(root_dir + "Log");
++        std::filesystem::create_directories(root_dir + "PCD");
++        fastlio_runtime_root() = root_dir;
++
+         /*** debug record ***/
+         // FILE *fp;
+         string pos_log_dir = root_dir + "/Log/pos_log.txt";
+         fp = fopen(pos_log_dir.c_str(),"w");
++        if (!fp) throw std::runtime_error("Cannot open FAST-LIO state log");
+ 
+         // ofstream fout_pre, fout_out, fout_dbg;
+         fout_pre.open(DEBUG_FILE_DIR("mat_pre.txt"),ios::out);
+         fout_out.open(DEBUG_FILE_DIR("mat_out.txt"),ios::out);
+         fout_dbg.open(DEBUG_FILE_DIR("dbg.txt"),ios::out);
+         if (fout_pre && fout_out)
+-            cout << "~~~~"<<ROOT_DIR<<" file opened" << endl;
++            cout << "~~~~"<<root_dir<<" file opened" << endl;
+         else
+-            cout << "~~~~"<<ROOT_DIR<<" doesn't exist" << endl;
++            cout << "~~~~"<<root_dir<<" doesn't exist" << endl;
+ 
+         /*** ROS subscribe initialization ***/
+         if (p_pre->lidar_type == AVIA)
+@@ -931,6 +979,7 @@
+         pubLaserCloudMap_ = this->create_publisher<sensor_msgs::msg::PointCloud2>("/Laser_map", 20);
+         pubOdomAftMapped_ = this->create_publisher<nav_msgs::msg::Odometry>("/Odometry", 20);
+         pubPath_ = this->create_publisher<nav_msgs::msg::Path>("/path", 20);
++        pubGravity_ = this->create_publisher<geometry_msgs::msg::Vector3Stamped>("/gravity", 20);
+         tf_broadcaster_ = std::make_unique<tf2_ros::TransformBroadcaster>(*this);
+ 
+         //------------------------------------------------------------------------------------------------------
+@@ -1059,7 +1108,7 @@
+             double t_update_end = omp_get_wtime();
+ 
+             /******* Publish odometry *******/
+-            publish_odometry(pubOdomAftMapped_, tf_broadcaster_);
++            publish_odometry(pubOdomAftMapped_, pubGravity_, tf_broadcaster_);
+ 
+             /*** add the feature points to map kdtree ***/
+             t3 = omp_get_wtime();
+@@ -1132,6 +1181,7 @@
+     rclcpp::Publisher<sensor_msgs::msg::PointCloud2>::SharedPtr pubLaserCloudEffect_;
+     rclcpp::Publisher<sensor_msgs::msg::PointCloud2>::SharedPtr pubLaserCloudMap_;
+     rclcpp::Publisher<nav_msgs::msg::Odometry>::SharedPtr pubOdomAftMapped_;
++    rclcpp::Publisher<geometry_msgs::msg::Vector3Stamped>::SharedPtr pubGravity_;
+     rclcpp::Publisher<nav_msgs::msg::Path>::SharedPtr pubPath_;
+     rclcpp::Subscription<sensor_msgs::msg::Imu>::SharedPtr sub_imu_;
+     rclcpp::Subscription<sensor_msgs::msg::PointCloud2>::SharedPtr sub_pcl_pc_;
+@@ -1168,7 +1218,7 @@
+     if (pcl_wait_save->size() > 0 && pcd_save_en)
+     {
+         string file_name = string("scans.pcd");
+-        string all_points_dir(string(string(ROOT_DIR) + "PCD/") + file_name);
++        string all_points_dir(string(root_dir + "PCD/") + file_name);
+         pcl::PCDWriter pcd_writer;
+         cout << "current scan saved to /PCD/" << file_name<<endl;
+         pcd_writer.writeBinary(all_points_dir, *pcl_wait_save);

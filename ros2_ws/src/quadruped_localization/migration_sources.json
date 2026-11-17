@@ -1,0 +1,57 @@
+{
+  "upstream_url": "https://github.com/real-lsy/That-nav",
+  "upstream_commit": "38b12d8d83d10ad1fe1e6b354a34fbf717ae42f4",
+  "migrated_files": {
+    "scripts/map_registration.py": {
+      "source_relative": "go2w_nav_ws/src/FAST_LIO_LOCALIZATION2/fast_lio_localization/global_localization.py",
+      "source_sha256": "9beffb0656faec53c939c9062c86f421e14755bc92bd163f4f712b8f42a4f9b6",
+      "migrated_sha256": "c8a966feda4c2a7588562f45f23be6f9718a03bb3e2e977417eb2b7c3a242254",
+      "migration_kind": "owned_algorithm_core_port_with_new_explicit_geometry_and_quality_gates",
+      "original_ros_node_retained": false,
+      "license": "GPL-2.0-only",
+      "changes": [
+        "coarse_result_seeds_fine_icp",
+        "metric_range_and_sensor_fov",
+        "explicit_base_initial_pose_and_map_odom_geometry",
+        "bounded_validated_inputs",
+        "fitness_residual_geometry_and_sensor_displacement_gates",
+        "stateless_acceptance_and_explicit_rejection"
+      ]
+    }
+  },
+  "owned_ros_integration": {
+    "scripts/map_localizer.py": {
+      "sha256": "abd221961546a57450d44d7018fa2bbed7b3dcd96df021384495016afcc85dce",
+      "origin": "authored_for_quadruped_nav_using_existing_owned_interfaces"
+    },
+    "scripts/localization_runtime.py": {
+      "sha256": "b223bf82394dc0b2934d575f5ac9bb494ce1db30123a282c2985a4513ecab34f",
+      "origin": "authored_for_quadruped_nav_using_existing_owned_interfaces"
+    },
+    "scripts/localization_config.py": {
+      "sha256": "f66fb4028748a55fb92c5a9bcc6f4bdcb9fbadec8d8075068dc9676db1a2605d",
+      "origin": "authored_for_quadruped_nav_using_existing_owned_interfaces"
+    },
+    "scripts/localization_map_source.py": {
+      "sha256": "67b574226b624c022aa8fc933e34f9b7336dbe194451d9f5ffb7414915cc356a",
+      "origin": "authored_for_quadruped_nav_using_existing_owned_interfaces"
+    }
+  },
+  "direct_upstream_core": {
+    "url": "https://github.com/Smart-Wheelchair-RRC/FAST_LIO_LOCALIZATION2",
+    "commit": "f04974907c8da976dd0495b272d18ac4c534d41f",
+    "source_file": "fast_lio_localization/global_localization.py",
+    "source_sha256": "9beffb0656faec53c939c9062c86f421e14755bc92bd163f4f712b8f42a4f9b6",
+    "port": "scripts/fast_lio_localization2_core.py",
+    "port_sha256": "9de8e56f4f303f75e33ebfb433a3e1b1a366caab72cffbea2e2c1869dd29739c",
+    "changes": [
+      "ROS-independent adapter",
+      "cached map pyramid and metric stage arguments",
+      "retain full result for existing quality checks",
+      "preserve project convergence tolerances",
+      "coarse result seeds fine stage"
+    ],
+    "original_ros_node_retained": false,
+    "license": "GPL-2.0-only"
+  }
+}

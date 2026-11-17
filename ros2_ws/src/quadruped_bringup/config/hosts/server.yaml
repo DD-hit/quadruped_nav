@@ -1,0 +1,7 @@
+schema_version: 1
+host_id: server
+ros_distro: humble
+ros_domain_id: 42
+isaac_root: /home/rl/isaacsim
+isaac_version_observed: 5.0.0-rc.45+release.23960.184afb15.gl
+data_root: /data0/rl/quadruped_nav

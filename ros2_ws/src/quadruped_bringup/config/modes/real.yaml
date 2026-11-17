@@ -1,0 +1,6 @@
+schema_version: 1
+mode: real
+use_sim_time: false
+platform_backend: robot_adapter
+implementation_status: pending
+hardware_enabled: false

@@ -1,0 +1,48 @@
+schema_version: 1
+scope: saved_map_localization
+runtime_integrated: true
+registration:
+  levels:
+  - map_voxel_m: 0.2
+    scan_voxel_m: 0.12
+    max_correspondence_m: 0.8
+    max_iterations: 60
+  - map_voxel_m: 0.08
+    scan_voxel_m: 0.05
+    max_correspondence_m: 0.2
+    max_iterations: 80
+  max_map_points: 500000
+  max_scan_points: 200000
+  min_points: 100
+  min_correspondences: 80
+  min_fitness: 0.75
+  max_rmse_m: 0.08
+  min_spatial_eigen_ratio: 0.002
+  min_spatial_std_m: 0.03
+  max_range_m: 30.0
+  min_range_m: 0.0
+  horizontal_fov_rad: 6.283185307179586
+  max_initial_shift_m: 1.0
+  max_initial_rotation_rad: 0.5235987755982988
+  max_tracking_shift_m: 0.25
+  max_tracking_rotation_rad: 0.17453292519943295
+runtime:
+  scan_topic: /lio/cloud_registered
+  scan_frame: camera_init
+  base_status_topic: /lio/base_odometry_status
+  runtime_status_topic: /lio/runtime_status
+  max_pending_pairs: 50
+  future_tolerance_s: 0.2
+  input_max_age_s: 0.6
+  status_max_age_s: 1.0
+  status_timeout_wall_s: 3.0
+  registration_interval_s: 0.5
+  result_max_age_s: 1.5
+  correction_max_age_s: 3.0
+  initial_pose_max_age_s: 2.0
+  initial_pair_tolerance_s: 0.15
+  stationary_window_s: 0.5
+  stationary_linear_m_s: 0.03
+  stationary_angular_rad_s: 0.05
+  stationary_span_m: 0.03
+  stationary_angle_rad: 0.03

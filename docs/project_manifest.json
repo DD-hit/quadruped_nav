@@ -1,0 +1,165 @@
+{
+  "stage": "navigation_dynamic_validation_with_remaining_physics_findings",
+  "upstreams": {
+    "jie_3d_nav": "995a3a544ce6e7bec6f205569339d5125843d727",
+    "SCAN-Planner/ros2-community": "d0b921c9b05a6d291d144d60882b2e0e88d2c0e0"
+  },
+  "validation": {
+    "scope": "ideal external ROS inputs",
+    "interface_checks": 23,
+    "integration_report": "/data0/rl/quadruped_nav/runs/navigation_fixed_integration_20261112_01/verification.json",
+    "avoidance_report": "/data0/rl/quadruped_nav/runs/navigation_fixed_avoidance_20261112_01/verification.json",
+    "hardware_verified": false,
+    "isaac_verified": true,
+    "isaac_report": "/data0/rl/quadruped_nav/runs/navigation_core_isaac_demo_20261112_01/verification.json"
+  },
+  "cleanup": {
+    "backup": "/data0/rl/quadruped_nav/runs/navigation_core_before_cleanup_20261111_01",
+    "root_scripts_before": 98,
+    "root_scripts_after": 15,
+    "old_custom_navigation_removed": true
+  },
+  "ready_for_demo": false,
+  "paused_by_user": false,
+  "latest_validation": {
+    "build": "PASS",
+    "ideal_interface_regression": "PASS",
+    "ideal_avoidance_regression": "PASS",
+    "Isaac_full_workflow": "PASS: 1 single goal and 3 ordered waypoints, explicit initial-pose registration and zero final command",
+    "handoff": "docs/handoff_20261112.md",
+    "diagnosis": "docs/failure_diagnosis_20261111.md",
+    "recorded_trajectory_retiming": "PASS",
+    "Web_console": "PASS: 7 control tests + 19 HTTP/Isaac checks; browser initialpose and manual control also exercised",
+    "refined_map_closed_loop": "Historical _02: 7/7 arrivals, localization precision gate FAIL; not a final-version full-workflow pass",
+    "navigation_build": "PASS",
+    "controlled_ros_dynamic_checks": 38,
+    "dynamic_observation_window": "PASS: expired 54 unknown dynamic voxels, retained all 16 selected known static voxels",
+    "latest_isaac_moving": "FAIL",
+    "navigation_dynamic_report": "docs/navigation_dynamic_fix_20261117.md",
+    "current_full_physics_acceptance": "NOT PASSED: historical and current-version partial tests must not be combined into a full-workflow acceptance"
+  },
+  "video_ready": true,
+  "video": {
+    "server_path": "/data0/rl/quadruped_nav/runs/navigation_full_video_20261112_02/全流程导航演示.mp4",
+    "duration_s": 165.2,
+    "fps": 20,
+    "resolution": [
+      1920,
+      1080
+    ],
+    "sha256": "e882cfd205cc24c2d6109d020c8583f22998324913c16306fe2f56e22b44b4da",
+    "quality_report": "/data0/rl/quadruped_nav/runs/navigation_full_video_20261112_02/video_quality.json"
+  },
+  "tracking_review": {
+    "status": "completed_with_findings",
+    "report": "docs/tracking_review_20261112.md",
+    "data": "/data0/rl/quadruped_nav/runs/navigation_tracking_review_20261112_02",
+    "moving_local_curve_distance_mean_m": 0.02138198741144807,
+    "moving_local_curve_distance_p95_m": 0.08733382437522731,
+    "moving_local_curve_distance_max_m": 0.22718041216914114,
+    "maximum_observed_zero_translation_turn_drift_m": 0.24080192183382987,
+    "minimum_native_model_gap_m": 0.01922483311401252,
+    "hardware_tracking_acceptance": false,
+    "navigation_algorithm_modified": false
+  },
+  "initial_localization_review": {
+    "status": "completed_with_false_acceptance_findings",
+    "report": "docs/initial_localization_review_20261113.md",
+    "data": "/data0/rl/quadruped_nav/runs/initial_pose_coverage_20261113_01",
+    "static_core_trials": 1064,
+    "positions": 19,
+    "headings": 8,
+    "full_runtime_trials": 6,
+    "full_runtime_reasonable_seed_passes": 4,
+    "full_runtime_wrong_seed_false_accepts": 2,
+    "registration_algorithm_modified": false,
+    "arbitrary_initial_pose_guaranteed": false,
+    "hardware_verified": false
+  },
+  "web_console": {
+    "status": "simulation_first_release_verified",
+    "package": "quadruped_web",
+    "documentation": "docs/web_console.md",
+    "map_id": "d1_full_room_web_20261117_01",
+    "map_rendering": "actual OctoMap leaves with individual sizes; height clipping is display-only",
+    "workflow_report": "/data0/rl/quadruped_nav/runs/web_isaac_acceptance_20261113_04/http/verification.json",
+    "release_artifacts": "/data0/rl/quadruped_nav/runs/web_release_20261113_01",
+    "unit_tests_passed": 7,
+    "integration_checks_passed": 19,
+    "navigation_algorithms_modified": false,
+    "localization_algorithms_modified": false,
+    "hardware_verified": false,
+    "camera_integrated": false,
+    "preset_actions_integrated": false,
+    "pending_pages": [
+      "map_and_waypoint_management",
+      "system_diagnostics"
+    ],
+    "runtime": "/data0/rl/quadruped_nav/runs/web_live_20261113_03",
+    "standby_simulation": "/data0/rl/quadruped_nav/runs/web_live_standby_20261113_01",
+    "loopback_port": 8766,
+    "runtime_status": "stopped_by_user",
+    "latest_user_test": "/data0/rl/quadruped_nav/runs/web_user_test_20261113_152128"
+  },
+  "ground_map_repair_20261116": {
+    "status": "map_export_and_layers_verified",
+    "map_id": "d1_full_room_web_20261116_02",
+    "localization_map_id": "d1_full_room_20261116_01",
+    "report": "/data0/rl/quadruped_nav/runs/ground_map_repair_20261116_02/verification.json",
+    "native_global_routes_passed": 8,
+    "hardware_verified": false,
+    "closed_loop_motion_retested": false,
+    "estimator_root_cause_resolved": false,
+    "remaining_raised_ground_cells": 7,
+    "original_maps_preserved": true
+  },
+  "ground_manual_edit_20261117": {
+    "map_id": "d1_full_room_web_20261117_01",
+    "source_map_id": "d1_full_room_web_20261116_02",
+    "reviewed_points": 7,
+    "remaining_raised_ground_cells": 0,
+    "localization_pcd_changed": false,
+    "upper_layer_unchanged": true,
+    "global_routes_passed": 8,
+    "report": "/data0/rl/quadruped_nav/runs/ground_manual_edit_20261117_01/verification.json",
+    "hardware_verified": false,
+    "closed_loop_motion_retested": true,
+    "runtime_status": "stopped",
+    "closed_loop_evidence": "refined_map_closed_loop_20261117_02 (historical version), localization gate not passed"
+  },
+  "refined_map_closed_loop_20261117": {
+    "result": "FAIL",
+    "map_id": "d1_full_room_web_20261117_01",
+    "session": "/data0/rl/quadruped_nav/runs/refined_map_closed_loop_20261117_01",
+    "report": "docs/refined_map_regression_20261117.md",
+    "initializations_tracking": 3,
+    "goals_completed": 4,
+    "goals_requested": 7,
+    "failure": "SCAN emergency stop while rounding pillar; local trajectory margin reduced",
+    "localization_lost": false,
+    "hardware_verified": false,
+    "production_algorithm_modified": false,
+    "runtime_status": "stopped"
+  },
+  "navigation_dynamic_fix_20261117": {
+    "report": "docs/navigation_dynamic_fix_20261117.md",
+    "summary": "/data0/rl/quadruped_nav/runs/navigation_dynamic_fix_final_20261117/verification.json",
+    "source_hashes": "/data0/rl/quadruped_nav/runs/navigation_dynamic_fix_final_20261117/source_hashes.json",
+    "controlled_checks_passed": 38,
+    "latest_physics_moving": "FAIL",
+    "physics_moving_report": "/data0/rl/quadruped_nav/runs/dynamic_isaac_moving_20261117_10/independent_evaluation.json",
+    "production_algorithm_modified": true,
+    "experimental_measured_body_stop_rule_removed": true,
+    "hardware_verified": false,
+    "runtime_status": "stopped",
+    "limitations": [
+      "No full current-version Isaac workflow acceptance; earlier corner and appearing-box physics trials failed",
+      "Return-only live observations expire after 3 seconds; unseen dynamic obstacles may still exist, occlusion safety not certified",
+      "Close sudden insertions inside configured safety buffer and near-wall goals have failed test cases",
+      "Seven-goal historical localization XY P95 0.15232757046430428 m exceeds 0.15 m gate",
+      "No hardware or whole robot mesh collision acceptance"
+    ],
+    "physics_failure_reason": "Goal timeout; task did not reach position and heading acceptance",
+    "final_localized_goal_distance_m": 0.2060197666972294
+  }
+}

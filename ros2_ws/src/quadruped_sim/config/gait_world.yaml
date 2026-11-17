@@ -1,0 +1,18 @@
+schema_version: 1
+scope: d1_dynamic_isaac_room
+lidar_samples_per_scan: 6000
+room_overrides:
+  floor:
+    size: [12.4, 6.4, 0.1]
+  ceiling:
+    size: [12.4, 6.4, 0.1]
+  east:
+    center: [6.1, 0.0, 1.5]
+  west:
+    center: [-6.1, 0.0, 1.5]
+  north:
+    size: [12.4, 0.2, 3.0]
+  south:
+    size: [12.4, 0.2, 3.0]
+  box:
+    center: [1.5, 1.8, 0.5]

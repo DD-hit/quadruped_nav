@@ -1,0 +1,62 @@
+schema_version: 1
+robot_id: d1_edu
+display_name: D1 EDU
+description_package: d1_edu_description
+adapter_package: d1_edu_adapter
+model:
+  status: static_review_verified
+  source_name: d1_edu_lidar_deck.urdf
+  source_provenance: unknown
+  source_root_frame: BASE_LINK
+  target_root_frame: base_link
+  urdf_relative_path: urdf/d1_edu.urdf
+  preview_pose_relative_path: config/preview.yaml
+base_reference:
+  definition: symmetry_center_of_four_abad_joint_origins
+  sdk_alignment_status: unverified
+  sdk_to_mechanical_transform: null
+sensor:
+  model: Livox Mid-360S
+  imu: built_in
+  calibration_status: nominal_cad_verified_not_physically_measured
+  transform_convention: T_parent_child_maps_child_coordinates_to_parent
+  base_to_lidar:
+    translation_m:
+    - 0.136339
+    - 0.0
+    - 0.249403
+    rpy_rad:
+    - 0.0
+    - 0.785398
+    - 0.0
+  lidar_to_imu:
+    translation_m:
+    - 0.011
+    - 0.02329
+    - -0.04412
+    rpy_rad:
+    - 0.0
+    - 0.0
+    - 0.0
+  publish_rate_hz: null
+  simulation_lidar_profile: geometric_lidar.yaml
+  simulation_imu_profile: ideal_imu.yaml
+footprint:
+  status: fixed_pose_planar_simulation_verified
+  geometry_relative_path: config/footprint.yaml
+  radius_m: 0.48
+  height_m: 0.805795073060773
+  active_shape: fixed_pose_link_boxes
+  static_collision_relative_path: config/static_collision.yaml
+  radius_semantics: conservative_yaw_invariant_fallback
+  gait_validated: false
+  hardware_verified: false
+motion_limits:
+  status: pending_validation
+  max_vx_mps: null
+  max_vy_mps: null
+  max_wz_radps: null
+frame_aliases:
+  base: base_link
+  lidar: lidar_link
+  imu: lidar_imu_link

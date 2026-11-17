@@ -1,0 +1,19 @@
+schema_version: 1
+status: owned_localization_ideal_simulation_verified
+implementation_package: quadruped_localization
+lio_backend_package: fast_lio
+registration_module: map_registration.py
+localizer_executable: map_localizer.py
+source_record: migration_sources.json
+upstream_commit: 38b12d8d83d10ad1fe1e6b354a34fbf717ae42f4
+state_reference: imu
+public_pose_reference: mechanical_base
+public_interface_source: quadruped_bringup/config/common.yaml
+map_formats:
+- localization_pcd
+- navigation_map_bundle
+controlled_ros_integration_verified: true
+independent_simulation_accuracy_verified: true
+hardware_verified: false
+managed_lio_sensor_combination_verified: true
+simulation_acceptance_run: /data0/rl/quadruped_nav/runs/localization_sim_20261105_01

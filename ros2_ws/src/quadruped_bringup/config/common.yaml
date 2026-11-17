@@ -1,0 +1,56 @@
+schema_version: 1
+stage: upstream_navigation_core
+frames:
+  map: map
+  odom: odom
+  base: base_link
+  lidar: lidar_link
+  imu: lidar_imu_link
+interfaces:
+  simulation_controller_status:
+    topic: /sim/controller_status
+    type: std_msgs/msg/String
+  cmd_vel:
+    topic: /cmd_vel
+    type: geometry_msgs/msg/Twist
+  lidar_points:
+    topic: /lidar/points
+    type: sensor_msgs/msg/PointCloud2
+  lidar_custom:
+    topic: /lidar/livox
+    type: livox_ros_driver2/msg/CustomMsg
+  imu:
+    topic: /imu/data
+    type: sensor_msgs/msg/Imu
+  joint_states:
+    topic: /joint_states
+    type: sensor_msgs/msg/JointState
+  clock:
+    topic: /clock
+    type: rosgraph_msgs/msg/Clock
+  ground_truth:
+    topic: /sim/ground_truth/odom
+    type: nav_msgs/msg/Odometry
+  odometry:
+    topic: /odom
+    type: nav_msgs/msg/Odometry
+  initial_pose:
+    topic: /initialpose
+    type: geometry_msgs/msg/PoseWithCovarianceStamped
+  localization_pose:
+    topic: /localization/pose
+    type: geometry_msgs/msg/PoseStamped
+  localization_status:
+    topic: /localization/status
+    type: std_msgs/msg/String
+  lio_registered_cloud:
+    topic: /lio/cloud_registered
+    type: sensor_msgs/msg/PointCloud2
+  global_path:
+    topic: /navigation/global_path
+    type: nav_msgs/msg/Path
+units:
+  length: m
+  angle: rad
+  acceleration: m/s^2
+  angular_velocity: rad/s

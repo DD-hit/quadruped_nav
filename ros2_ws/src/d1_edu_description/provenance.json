@@ -1,0 +1,133 @@
+{
+  "source_urdf_sha256": "842ee62e45378e33d9810290d57d38001245ee156704f990647d4944bb50f0b6",
+  "canonical_urdf_sha256": "5332cb2306fdf4e14db2c917565685a1c075eb857fefb0f61fce9cdc45580101",
+  "provenance": "user supplied; original manufacturer source unknown",
+  "numeric_model_changes": false,
+  "renamed_links": {
+    "BASE_LINK": "base_link",
+    "livox_mid360s": "lidar_link",
+    "livox_mid360s_imu": "lidar_imu_link"
+  },
+  "meshes": [
+    {
+      "name": "BASE_LINK.STL",
+      "sha256": "7cf64295818461014dae26901e533684e29cdf5c514290eb2e25f6777fc63ef7",
+      "bytes": 6542984
+    },
+    {
+      "name": "FL_ABAD_LINK.STL",
+      "sha256": "1e07b6dde09e64623f980695872ddc3fa3b613ddab7f0583d3c0104cb6a11c89",
+      "bytes": 427284
+    },
+    {
+      "name": "FL_FOOT_LINK.STL",
+      "sha256": "11b79ac690f8ae46a1027af271d6d8fff821f2877437504b3a3d24ae8e15c985",
+      "bytes": 1057084
+    },
+    {
+      "name": "FL_HIP_LINK.STL",
+      "sha256": "7e15d65c697584da7638efe411970d1e7d23c18cf615a72d748c09ace7869b59",
+      "bytes": 56584
+    },
+    {
+      "name": "FL_KNEE_LINK.STL",
+      "sha256": "2933d96547cb8be90f68afd6705fa8255f4509670377922c547b03927c9fa0f3",
+      "bytes": 650684
+    },
+    {
+      "name": "FR_ABAD_LINK.STL",
+      "sha256": "4d1631a76724bc232654b3bf2057b57fe10f946b1dab7dbfacd622bf19e0beea",
+      "bytes": 427284
+    },
+    {
+      "name": "FR_FOOT_LINK.STL",
+      "sha256": "caae7a473e20e2666310854a5f937aa187918dc18540252008cf15dfaff75320",
+      "bytes": 1057084
+    },
+    {
+      "name": "FR_HIP_LINK.STL",
+      "sha256": "2f82d715cbc2758c8b16d2481f18947f16f556fc39c032c277434180a69ad498",
+      "bytes": 56584
+    },
+    {
+      "name": "FR_KNEE_LINK.STL",
+      "sha256": "daeebf6b945bd1f3e54bdd6ccd880a4a2d4b24fc67c5c2b2fa97ca956870304f",
+      "bytes": 650684
+    },
+    {
+      "name": "RL_ABAD_LINK.STL",
+      "sha256": "ba17ca6d9a1c8d0e2d1dd120b90a8d0c4f95d92e12741db77b7d0cac4ca53c40",
+      "bytes": 427284
+    },
+    {
+      "name": "RL_FOOT_LINK.STL",
+      "sha256": "1a0a8b86fde513f270d9ddf1b8022813d05c31089ac0037ad83b76ecfcafc7aa",
+      "bytes": 1057084
+    },
+    {
+      "name": "RL_HIP_LINK.STL",
+      "sha256": "39a8b4c7c408719fd72b5cea33484602ccd3ae638405cf4badb95584e1ec4b9c",
+      "bytes": 56584
+    },
+    {
+      "name": "RL_KNEE_LINK.STL",
+      "sha256": "2365a2525a8b249f5c6b22e5f3d4674e2defdb475d712e62bee46adc3d91f2e7",
+      "bytes": 650684
+    },
+    {
+      "name": "RR_ABAD_LINK.STL",
+      "sha256": "8a463dddcf7ac15b864fa4cabe6f162941027e3b9823bc4743cc0defd4c51d3d",
+      "bytes": 427284
+    },
+    {
+      "name": "RR_FOOT_LINK.STL",
+      "sha256": "598fbf12eb254e63048e10532f6986ea6518ab01543b886c341d2bcefb995814",
+      "bytes": 1057084
+    },
+    {
+      "name": "RR_HIP_LINK.STL",
+      "sha256": "6165c7bcfa0cffe6e7a538f7433d6c8c61cea3325b967c77a61128aeeedd6e4d",
+      "bytes": 56584
+    },
+    {
+      "name": "RR_KNEE_LINK.STL",
+      "sha256": "46a5c88f6ddcee2b24a1385bf0db839d3e751935356f51dee02cc6d72c23ea1f",
+      "bytes": 650684
+    },
+    {
+      "name": "livox_mid360s_link.stl",
+      "sha256": "1a3b6b6198303835d4006c7549dd26632fad15c3e90488276e5452c103d67729",
+      "bytes": 1928984
+    },
+    {
+      "name": "payload_deck_layer1.stl",
+      "sha256": "fc5ea5c0757d131bfead91dd053d3114777fb44ba3991e83c1d888a4d06cae93",
+      "bytes": 163484
+    },
+    {
+      "name": "payload_deck_layer2.stl",
+      "sha256": "9350bfb8e9ce3d0448321af5c7ef682c797de76d7f5f5999117aa46dfda46d63",
+      "bytes": 116884
+    },
+    {
+      "name": "payload_lidar_mast.stl",
+      "sha256": "00e0f5efef476f1221d8cf4713a2cbfe23952f824c07a974572da710c8ccb323",
+      "bytes": 259084
+    },
+    {
+      "name": "payload_riser.stl",
+      "sha256": "916f511412a4f529b78c4e12c46059339c0d4f72e41eaeb5568346f26f940089",
+      "bytes": 71284
+    },
+    {
+      "name": "payload_so101_arm.stl",
+      "sha256": "d041d95e245043c2dfac10af4aa35951583398c142dd729098f98af5f56117ed",
+      "bytes": 19944284
+    },
+    {
+      "name": "payload_standoffs.stl",
+      "sha256": "11ca46975c0e76afd82f8c9bc10b0d1a5d03d0868147cec5a1187d4ada0bb723",
+      "bytes": 13284
+    }
+  ]
+}

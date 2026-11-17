@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>quadruped_navigation</name>
+  <version>0.1.0</version>
+  <description>jie_3d_nav global planning with the native SCAN local planner/controller and Nav2 APIs.</description>
+  <maintainer email="rl@example.invalid">rl</maintainer>
+  <license>MIT</license>
+  <license>Apache-2.0</license>
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <buildtool_depend>ament_cmake_python</buildtool_depend>
+  <depend>rclcpp</depend>
+  <depend>rclpy</depend>
+  <depend>geometry_msgs</depend>
+  <depend>nav_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>std_msgs</depend>
+  <depend>quadruped_interfaces</depend>
+  <depend>octomap</depend>
+  <depend>octomap_msgs</depend>
+  <depend>visualization_msgs</depend>
+  <depend>eigen</depend>
+  <depend>cv_bridge</depend>
+  <depend>pcl_conversions</depend>
+  <depend>message_filters</depend>
+  <depend>tf2</depend>
+  <depend>tf2_ros</depend>
+  <depend>tf2_geometry_msgs</depend>
+  <depend>tf2_sensor_msgs</depend>
+  <depend>nav2_msgs</depend>
+  <depend>action_msgs</depend>
+  <depend>ament_index_python</depend>
+  <depend>python3-yaml</depend>
+  <depend>python3-numpy</depend>
+  <depend>libopen3d-dev</depend>
+  <export><build_type>ament_cmake</build_type></export>
+</package>

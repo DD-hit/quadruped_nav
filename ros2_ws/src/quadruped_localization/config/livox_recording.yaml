@@ -1,0 +1,36 @@
+schema_version: 1
+profile_id: mid360s_pinned_driver_raw
+status: source_checked_real_recording_pending
+scope: offline_livox_recording
+input:
+  lidar_topic: /livox/lidar
+  imu_topic: /livox/imu
+  lidar_frame: livox_frame
+  imu_frame: livox_frame
+  acceleration_unit: g
+  angular_velocity_unit: rad_s
+  cloud_coordinates: native_lidar
+  scan_lines: 4
+  nominal_scan_hz: 10.0
+  nominal_imu_hz: 200.0
+  max_scan_span_s: 0.2
+output:
+  lidar_topic: /lidar/livox
+  imu_topic: /imu/data
+  lio_imu_topic: /lio/imu
+  lidar_frame: lidar_link
+  imu_frame: lidar_imu_link
+replay_topics:
+  lidar: /replay/livox/lidar
+  imu: /replay/livox/imu
+status_topic: /lio/recording_input_status
+validation:
+  minimum_duration_s: 4.0
+  stationary_window_s: 3.0
+  stationary_gyro_max_rad_s: 0.2
+  stationary_acceleration_norm_std_m_s2: 1.0
+  max_record_header_offset_s: 1.0
+  minimum_scan_imu_coverage: 0.9
+  max_imu_gap_s: 0.1
+  acceleration_norm_min_m_s2: 7.0
+  acceleration_norm_max_m_s2: 12.5

@@ -1,0 +1,27 @@
+schema_version: 1
+status: candidate_not_validated_with_real_recording
+scope: mid360s_recording_only
+parameters:
+  point_filter_num: 3
+  max_iteration: 3
+  filter_size_surf: 0.5
+  filter_size_map: 0.5
+  cube_side_length: 200.0
+  runtime_pos_log_enable: false
+  preprocess:
+    blind: 0.5
+  mapping:
+    acc_cov: 0.1
+    gyr_cov: 0.1
+    b_acc_cov: 0.0001
+    b_gyr_cov: 0.0001
+    det_range: 50.0
+  publish:
+    path_en: true
+    scan_publish_en: true
+    dense_publish_en: true
+    scan_bodyframe_pub_en: true
+    map_en: false
+  pcd_save:
+    pcd_save_en: false
+    interval: -1

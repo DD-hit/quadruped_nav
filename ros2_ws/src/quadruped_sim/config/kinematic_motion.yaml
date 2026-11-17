@@ -1,0 +1,22 @@
+schema_version: 1
+backend: planar_kinematic
+status: verified
+simulation_step_hz: 60.0
+command_timeout_wall_s: 0.5
+max_speed:
+  vx_mps: 0.3
+  vy_mps: 0.2
+  wz_radps: 0.6
+max_acceleration:
+  ax_mps2: 0.5
+  ay_mps2: 0.5
+  yaw_radps2: 1.0
+ground_truth_frames:
+  parent: sim_world
+  child: sim_base_link
+services:
+  pause: /sim/pause
+  resume: /sim/resume
+  reset: /sim/reset
+state_topic: /sim/motion_state
+follow_camera: true

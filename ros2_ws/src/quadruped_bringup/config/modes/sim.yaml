@@ -1,0 +1,7 @@
+schema_version: 1
+mode: sim
+use_sim_time: true
+platform_backend: quadruped_sim
+motion_backend: kinematic
+implementation_status: kinematic_motion_verified
+hardware_enabled: false

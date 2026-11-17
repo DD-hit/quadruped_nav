@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>d1_edu_description</name>
+  <version>0.0.1</version>
+  <description>D1 EDU 模型、网格及可生成的仿真资产；待导入。</description>
+  <maintainer email="rl@example.invalid">rl</maintainer>
+  <license>TODO: project license not selected</license>
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <export><build_type>ament_cmake</build_type></export>
+</package>

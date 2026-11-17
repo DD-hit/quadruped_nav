@@ -1,0 +1,15 @@
+schema_version: 1
+purpose: static_model_review_only
+joint_positions_deg:
+  FL_ABAD_JOINT: 0.0
+  FL_HIP_JOINT: 45.0
+  FL_KNEE_JOINT: -90.0
+  FR_ABAD_JOINT: 0.0
+  FR_HIP_JOINT: 45.0
+  FR_KNEE_JOINT: -90.0
+  RL_ABAD_JOINT: 0.0
+  RL_HIP_JOINT: 45.0
+  RL_KNEE_JOINT: -90.0
+  RR_ABAD_JOINT: 0.0
+  RR_HIP_JOINT: 45.0
+  RR_KNEE_JOINT: -90.0

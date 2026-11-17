@@ -1,0 +1,23 @@
+schema_version: 1
+scope: localization_pcd_only
+registered_cloud_topic: /lio/cloud_registered
+registered_cloud_frame: camera_init
+base_status_topic: /lio/base_odometry_status
+runtime_status_topic: /lio/runtime_status
+status_topic: /mapping/status
+save_service: /mapping/save
+loaded_cloud_topic: /mapping/loaded_cloud
+loaded_status_topic: /mapping/loaded_map_status
+voxel_size_m: 0.05
+max_voxels: 500000
+max_cloud_points: 200000
+max_pending_pairs: 20
+minimum_scans: 20
+minimum_duration_s: 2.0
+minimum_voxels: 500
+reset_policy: invalidate_unsaved_session_on_clock_rollback_or_runtime_generation_change
+save_policy: immutable_once_manifest_committed
+# Final map frame follows converged estimated gravity; all geometry rotates rigidly.
+gravity_topic: /lio/gravity
+gravity_finalize_window_s: 1.0
+gravity_finalize_max_spread_deg: 0.1

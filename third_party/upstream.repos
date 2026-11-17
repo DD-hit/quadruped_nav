@@ -1,0 +1,9 @@
+repositories:
+  global_navigation:
+    type: git
+    url: https://github.com/6-robot/jie_3d_nav.git
+    version: 995a3a544ce6e7bec6f205569339d5125843d727
+  local_navigation:
+    type: git
+    url: https://github.com/wuyi2121/SCAN-Planner.git
+    version: d0b921c9b05a6d291d144d60882b2e0e88d2c0e0

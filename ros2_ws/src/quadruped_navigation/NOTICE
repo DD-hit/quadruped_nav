@@ -1,0 +1,3 @@
+Map processing and global planning: 6-robot/jie_3d_nav, 995a3a544ce6e7bec6f205569339d5125843d727 (MIT, as declared upstream).
+Local planning and closed-loop tracking: wuyi2121/SCAN-Planner, ros2-community d0b921c9b05a6d291d144d60882b2e0e88d2c0e0 (Apache-2.0).
+See migration_sources.json and licenses/ for source mapping and notices.

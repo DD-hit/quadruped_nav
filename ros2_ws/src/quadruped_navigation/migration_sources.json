@@ -1,0 +1,266 @@
+{
+  "global_upstream": "6-robot/jie_3d_nav@995a3a544ce6e7bec6f205569339d5125843d727",
+  "local_upstream": "wuyi2121/SCAN-Planner@d0b921c9b05a6d291d144d60882b2e0e88d2c0e0",
+  "changes": "docs/source_changes.md",
+  "files": [
+    {
+      "upstream": "SCAN-Planner",
+      "source": "src/planner/bspline_opt/include/bspline_opt/uniform_bspline.h",
+      "destination": "ros2_ws/src/quadruped_navigation/include/bspline_opt/uniform_bspline.h",
+      "source_sha256": "5ab1b400f4b0b36c62d3661091e753bd4a238ddf90dbdd8f3b25b5d21c387a28",
+      "migrated_sha256": "75119884a846bfd402e3f3ee79dc871064da4b71a763c5626d53403262fb418a"
+    },
+    {
+      "upstream": "SCAN-Planner",
+      "source": "src/planner/bspline_opt/include/bspline_opt/bspline_optimizer.h",
+      "destination": "ros2_ws/src/quadruped_navigation/include/bspline_opt/bspline_optimizer.h",
+      "source_sha256": "ddd2c2e812b2dd59bb32f383c093246ebe12a9a667ae93d448ef5d1e4b9ef926",
+      "migrated_sha256": "ddd2c2e812b2dd59bb32f383c093246ebe12a9a667ae93d448ef5d1e4b9ef926"
+    },
+    {
+      "upstream": "SCAN-Planner",
+      "source": "src/planner/bspline_opt/include/bspline_opt/lbfgs.hpp",
+      "destination": "ros2_ws/src/quadruped_navigation/include/bspline_opt/lbfgs.hpp",
+      "source_sha256": "39174dfe750b142f448fe8ac637976edc8a1bcf6a6ab8a56930e6543cfdf6b07",
+      "migrated_sha256": "39174dfe750b142f448fe8ac637976edc8a1bcf6a6ab8a56930e6543cfdf6b07"
+    },
+    {
+      "upstream": "SCAN-Planner",
+      "source": "src/planner/bspline_opt/include/bspline_opt/gradient_descent_optimizer.h",
+      "destination": "ros2_ws/src/quadruped_navigation/include/bspline_opt/gradient_descent_optimizer.h",
+      "source_sha256": "1b02e713ac1112ea0a365f84e23af262822a1d76fe9cef3e8740b073d906abca",
+      "migrated_sha256": "1b02e713ac1112ea0a365f84e23af262822a1d76fe9cef3e8740b073d906abca"
+    },
+    {
+      "upstream": "SCAN-Planner",
+      "source": "src/planner/bspline_opt/src/uniform_bspline.cpp",
+      "destination": "ros2_ws/src/quadruped_navigation/src/uniform_bspline.cpp",
+      "source_sha256": "e91c5a429155738389602dc4c50301ea65f8f134809406545779c1bf0c1d7a8b",
+      "migrated_sha256": "b12f14e612ff4defa08a9156a99f3de9712a750ef3c992a9fb1a096f5ec23c2f"
+    },
+    {
+      "upstream": "SCAN-Planner",
+      "source": "src/planner/bspline_opt/src/gradient_descent_optimizer.cpp",
+      "destination": "ros2_ws/src/quadruped_navigation/src/gradient_descent_optimizer.cpp",
+      "source_sha256": "4dca3811be57cf3f819a0d3601d6a6024c304f5b9852e4079bf3334706f133c7",
+      "migrated_sha256": "4dca3811be57cf3f819a0d3601d6a6024c304f5b9852e4079bf3334706f133c7"
+    },
+    {
+      "upstream": "SCAN-Planner",
+      "source": "src/planner/bspline_opt/src/bspline_optimizer.cpp",
+      "destination": "ros2_ws/src/quadruped_navigation/src/bspline_optimizer.cpp",
+      "source_sha256": "9744424bd58841213230e95b252706360b1d4db10eaf30e7f6bf34a857a87568",
+      "migrated_sha256": "458b8af0a422803da1baf279aa5b779915f7d591a575e9ed3098201a04585631"
+    },
+    {
+      "upstream": "SCAN-Planner",
+      "source": "src/planner/path_searching/include/path_searching/dyn_a_star.h",
+      "destination": "ros2_ws/src/quadruped_navigation/include/path_searching/dyn_a_star.h",
+      "source_sha256": "4e4df749a5bad3dd2dfe464a5f0917360c5da9d70ca9da83231deee112ab86c2",
+      "migrated_sha256": "4e4df749a5bad3dd2dfe464a5f0917360c5da9d70ca9da83231deee112ab86c2"
+    },
+    {
+      "upstream": "SCAN-Planner",
+      "source": "src/planner/path_searching/src/dyn_a_star.cpp",
+      "destination": "ros2_ws/src/quadruped_navigation/src/dyn_a_star.cpp",
+      "source_sha256": "ba2bc44485c7506de56857f3e7a93cf94d5616f43573d4f53eb1fbd001aa758f",
+      "migrated_sha256": "ba2bc44485c7506de56857f3e7a93cf94d5616f43573d4f53eb1fbd001aa758f"
+    },
+    {
+      "upstream": "SCAN-Planner",
+      "source": "src/planner/plan_env/include/plan_env/grid_map.h",
+      "destination": "ros2_ws/src/quadruped_navigation/include/plan_env/grid_map.h",
+      "source_sha256": "f6f40c633af78cd3fa182c429ea0d19bbbabb15803f3cf5575bbc50e998fd297",
+      "migrated_sha256": "f6f40c633af78cd3fa182c429ea0d19bbbabb15803f3cf5575bbc50e998fd297"
+    },
+    {
+      "upstream": "SCAN-Planner",
+      "source": "src/planner/plan_env/include/plan_env/raycast.h",
+      "destination": "ros2_ws/src/quadruped_navigation/include/plan_env/raycast.h",
+      "source_sha256": "0bf2bfc853eed90f8ca3b47ae14050db40a08fbe5ea1db8c3ab1fb4b363b39b0",
+      "migrated_sha256": "0bf2bfc853eed90f8ca3b47ae14050db40a08fbe5ea1db8c3ab1fb4b363b39b0"
+    },
+    {
+      "upstream": "SCAN-Planner",
+      "source": "src/planner/plan_env/src/grid_map.cpp",
+      "destination": "ros2_ws/src/quadruped_navigation/src/grid_map.cpp",
+      "source_sha256": "144abf7c40f6e6a29a38eff61643f3232f145cdcaca7876cde2ba2c7354e58c1",
+      "migrated_sha256": "144abf7c40f6e6a29a38eff61643f3232f145cdcaca7876cde2ba2c7354e58c1"
+    },
+    {
+      "upstream": "SCAN-Planner",
+      "source": "src/planner/plan_env/src/raycast.cpp",
+      "destination": "ros2_ws/src/quadruped_navigation/src/raycast.cpp",
+      "source_sha256": "d7cd0a81c3264fe8aa0920b796cf5dd86241b35aa74c15890af5a5c10f270a40",
+      "migrated_sha256": "d7cd0a81c3264fe8aa0920b796cf5dd86241b35aa74c15890af5a5c10f270a40"
+    },
+    {
+      "upstream": "SCAN-Planner",
+      "source": "src/planner/traj_utils/include/traj_utils/planning_visualization.h",
+      "destination": "ros2_ws/src/quadruped_navigation/include/traj_utils/planning_visualization.h",
+      "source_sha256": "c7d0bb617163f7931fce28346963a5cc5ab0f383aa00ebb360c2f8319bc5a4c1",
+      "migrated_sha256": "c7d0bb617163f7931fce28346963a5cc5ab0f383aa00ebb360c2f8319bc5a4c1"
+    },
+    {
+      "upstream": "SCAN-Planner",
+      "source": "src/planner/traj_utils/include/traj_utils/polynomial_traj.h",
+      "destination": "ros2_ws/src/quadruped_navigation/include/traj_utils/polynomial_traj.h",
+      "source_sha256": "7ce335eea4abc5afb9f02fb3d1f5e926f57dc90e2a0b9005ad11ab13836f1060",
+      "migrated_sha256": "79660b5f96898306d0352fb5a7f9f369e429bd8db1b0645491b0ea30b7e6af1d"
+    },
+    {
+      "upstream": "SCAN-Planner",
+      "source": "src/planner/traj_utils/src/planning_visualization.cpp",
+      "destination": "ros2_ws/src/quadruped_navigation/src/planning_visualization.cpp",
+      "source_sha256": "938924191bfe46dbfadd83df45d118f0fc7fc54c080ecf9bf310fc7b1ba71541",
+      "migrated_sha256": "938924191bfe46dbfadd83df45d118f0fc7fc54c080ecf9bf310fc7b1ba71541"
+    },
+    {
+      "upstream": "SCAN-Planner",
+      "source": "src/planner/traj_utils/src/polynomial_traj.cpp",
+      "destination": "ros2_ws/src/quadruped_navigation/src/polynomial_traj.cpp",
+      "source_sha256": "608005c392dbfa46315cfa3f6e5f3b9db5bc3a10cb3f9ac539c3321505acdb18",
+      "migrated_sha256": "608005c392dbfa46315cfa3f6e5f3b9db5bc3a10cb3f9ac539c3321505acdb18"
+    },
+    {
+      "upstream": "SCAN-Planner",
+      "source": "src/planner/plan_manage/include/plan_manage/planner_manager.h",
+      "destination": "ros2_ws/src/quadruped_navigation/include/plan_manage/planner_manager.h",
+      "source_sha256": "b1f04257653c84757b0a2ce8cc05c6fb5f42ba09ee523a7cc16c400e4a1a7a31",
+      "migrated_sha256": "b1f04257653c84757b0a2ce8cc05c6fb5f42ba09ee523a7cc16c400e4a1a7a31"
+    },
+    {
+      "upstream": "SCAN-Planner",
+      "source": "src/planner/plan_manage/include/plan_manage/scan_replan_fsm.h",
+      "destination": "ros2_ws/src/quadruped_navigation/include/plan_manage/scan_replan_fsm.h",
+      "source_sha256": "0cde988dc286fd3a9b27a0eb0fc3f1341d7fa6d22dc665bef7140d5e05b0e741",
+      "migrated_sha256": "eacf7b2bb7431293c711b7538ca73dd8cc6a6544f7143b369dde7191aca764a2"
+    },
+    {
+      "upstream": "SCAN-Planner",
+      "source": "src/planner/plan_manage/include/plan_manage/plan_container.hpp",
+      "destination": "ros2_ws/src/quadruped_navigation/include/plan_manage/plan_container.hpp",
+      "source_sha256": "c5c37fdd776a09b846ec04034329c2781b07f3ad4feeab095084115b179bf2d4",
+      "migrated_sha256": "c5c37fdd776a09b846ec04034329c2781b07f3ad4feeab095084115b179bf2d4"
+    },
+    {
+      "upstream": "SCAN-Planner",
+      "source": "src/planner/plan_manage/src/closed_loop_controller.cpp",
+      "destination": "ros2_ws/src/quadruped_navigation/src/closed_loop_controller.cpp",
+      "source_sha256": "1bc1124a643b912ca8a56a66c3e7fe63088cd21fb9ec7f7ef82eb393fe0d0dd0",
+      "migrated_sha256": "a52a2abdaca0ec4129a574551d04dc49a9c90df606d1921440ff66f6ef3f7698"
+    },
+    {
+      "upstream": "SCAN-Planner",
+      "source": "src/planner/plan_manage/src/scan_planner_node.cpp",
+      "destination": "ros2_ws/src/quadruped_navigation/src/scan_planner_node.cpp",
+      "source_sha256": "2040950cf8e72e6037543185b89a92fa9f416b05976131730d7ae05236bc2f08",
+      "migrated_sha256": "638d45b3257394d1e456c9d40d8c3b0f0496d130a6abaf1cff583f184c9f8f7e"
+    },
+    {
+      "upstream": "SCAN-Planner",
+      "source": "src/planner/plan_manage/src/scan_replan_fsm.cpp",
+      "destination": "ros2_ws/src/quadruped_navigation/src/scan_replan_fsm.cpp",
+      "source_sha256": "d7857481caab76d720961bac7c03946b3fee0c60e2aee1951730be848afa5f58",
+      "migrated_sha256": "e38d47cc97fb7ea952c8e1b4db7f22afecfb85f91ee130b6e86c08b704972a42"
+    },
+    {
+      "upstream": "SCAN-Planner",
+      "source": "src/planner/plan_manage/src/planner_manager.cpp",
+      "destination": "ros2_ws/src/quadruped_navigation/src/planner_manager.cpp",
+      "source_sha256": "90e1d988333257119d6483baa271475162ca2bb86c40c3849c26db969f8f0175",
+      "migrated_sha256": "d9136f743d9106e8b74e3d969a1ad2bb265ac62d36e68786e78879cfa53c2662"
+    },
+    {
+      "upstream": "SCAN-Planner",
+      "source": "src/planner/scan_planner_msgs/msg/Bspline.msg",
+      "destination": "ros2_ws/src/quadruped_interfaces/msg/Bspline.msg",
+      "source_sha256": "60040920d4c09184baa540fad8babbec6b3e4e81c7d80522d4bedd048e162fbc",
+      "migrated_sha256": "60040920d4c09184baa540fad8babbec6b3e4e81c7d80522d4bedd048e162fbc"
+    },
+    {
+      "upstream": "SCAN-Planner",
+      "source": "src/planner/scan_planner_msgs/msg/DataDisp.msg",
+      "destination": "ros2_ws/src/quadruped_interfaces/msg/DataDisp.msg",
+      "source_sha256": "e5af486e44777df259d35ee0a4d6f99a1a9bcb6d99de0c64687d1e5c02abc7f2",
+      "migrated_sha256": "e5af486e44777df259d35ee0a4d6f99a1a9bcb6d99de0c64687d1e5c02abc7f2"
+    },
+    {
+      "upstream": "jie_3d_nav",
+      "source": "jie_map_msgs/srv/GetNavigationMapMeta.srv",
+      "destination": "ros2_ws/src/quadruped_interfaces/srv/GetNavigationMapMeta.srv",
+      "source_sha256": "38504c9c6788ebfb1e21a94953c61506e9efde21d0d8f2a3d1aee1384f62cd23",
+      "migrated_sha256": "38504c9c6788ebfb1e21a94953c61506e9efde21d0d8f2a3d1aee1384f62cd23"
+    },
+    {
+      "upstream": "jie_3d_nav",
+      "source": "jie_map_msgs/srv/LoadNavigationMapPackage.srv",
+      "destination": "ros2_ws/src/quadruped_interfaces/srv/LoadNavigationMapPackage.srv",
+      "source_sha256": "ee522c7a3a9033c5799580502bba3f9d8cf008ea02860a77d59ae654833c39af",
+      "migrated_sha256": "ee522c7a3a9033c5799580502bba3f9d8cf008ea02860a77d59ae654833c39af"
+    },
+    {
+      "upstream": "jie_3d_nav",
+      "source": "jie_map_msgs/srv/ExportNavigationSnapshot.srv",
+      "destination": "ros2_ws/src/quadruped_interfaces/srv/ExportNavigationSnapshot.srv",
+      "source_sha256": "919744c4082cc93f6ddc5c51c0171d359038f3ced7d96bf86871099d19767e2a",
+      "migrated_sha256": "919744c4082cc93f6ddc5c51c0171d359038f3ced7d96bf86871099d19767e2a"
+    },
+    {
+      "upstream": "jie_3d_nav",
+      "source": "jie_map_msgs/srv/SaveNavigationMapPackage.srv",
+      "destination": "ros2_ws/src/quadruped_interfaces/srv/SaveNavigationMapPackage.srv",
+      "source_sha256": "52fe1693e15240736e3ac427a6d20c53e6ce9b62cc8d0b1e676144504b0e3f15",
+      "migrated_sha256": "52fe1693e15240736e3ac427a6d20c53e6ce9b62cc8d0b1e676144504b0e3f15"
+    },
+    {
+      "upstream": "jie_3d_nav",
+      "source": "jie_octomap/src/pcd_to_octomap_node.cpp",
+      "destination": "ros2_ws/src/quadruped_navigation/src/map_tools/pcd_to_octomap_node.cpp",
+      "source_sha256": "59e27917d67cabba51868a5fc65cc2efe027269ab7b83f8109d8b52b2258d730",
+      "migrated_sha256": "59e27917d67cabba51868a5fc65cc2efe027269ab7b83f8109d8b52b2258d730"
+    },
+    {
+      "upstream": "jie_3d_nav",
+      "source": "jie_octomap/src/octomap_to_occupied_markers_node.cpp",
+      "destination": "ros2_ws/src/quadruped_navigation/src/map_tools/octomap_to_occupied_markers_node.cpp",
+      "source_sha256": "946557421677f0f8ddfcb183cb3fcb2d3181f2e8176268bcae7810353351e03a",
+      "migrated_sha256": "946557421677f0f8ddfcb183cb3fcb2d3181f2e8176268bcae7810353351e03a"
+    },
+    {
+      "upstream": "jie_3d_nav",
+      "source": "jie_octomap/src/octomap_to_cloud_node.cpp",
+      "destination": "ros2_ws/src/quadruped_navigation/src/map_tools/octomap_to_cloud_node.cpp",
+      "source_sha256": "0e2fe9d387733e03a83a81e8ffea0b4383e4d130bcb025c1cfafd4b414562d10",
+      "migrated_sha256": "0e2fe9d387733e03a83a81e8ffea0b4383e4d130bcb025c1cfafd4b414562d10"
+    },
+    {
+      "upstream": "jie_3d_nav",
+      "source": "octo_planner/src/jie_path_node.cpp",
+      "destination": "ros2_ws/src/quadruped_navigation/src/global_planner.cpp",
+      "source_sha256": "2266927c9dad9833ff6588d46a67b3561c9098efa488c058244ce4f476025150",
+      "migrated_sha256": "8204492235c5733e3989af13cd4c183fce4127307bac7c384881c156f9d05539"
+    },
+    {
+      "upstream": "jie_3d_nav",
+      "source": "jie_octomap/jie_octomap/map_package_manager.py",
+      "destination": "ros2_ws/src/quadruped_navigation/quadruped_navigation_tools/map_package_manager.py",
+      "source_sha256": "078cda4637379737c50f7255aabee9b87f9e06fdf95aa37dc189f480340b9afc",
+      "migrated_sha256": "fa9915a75774abbdf149ecbfc58acfac5c2a2456fd539f4b88b6637312dc6590"
+    },
+    {
+      "upstream": "jie_3d_nav",
+      "source": "jie_octomap/jie_octomap/__init__.py",
+      "destination": "ros2_ws/src/quadruped_navigation/quadruped_navigation_tools/__init__.py",
+      "source_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "migrated_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "upstream": "jie_3d_nav",
+      "source": "jie_octomap/scripts/map_package_manager",
+      "destination": "ros2_ws/src/quadruped_navigation/scripts/map_package_manager",
+      "source_sha256": "364bf3ba2ced65ace61ed6b8f542e891757098f67caa269a6e4e97744c5a0fa8",
+      "migrated_sha256": "ff03df32bf614f4a0850e0551f7160017e7de8e639bf2ee026ecc9d2fb7c0d4f"
+    }
+  ]
+}
